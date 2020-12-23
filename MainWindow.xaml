@@ -8,8 +8,8 @@
         Title="Drawing Game" Height="650" Width="800"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <StackPanel Background="#FFE5E5E5">
-            <ToolBar Name="InkToolBar" Height="60">
+        <DockPanel>
+            <ToolBar Name="InkToolBar" Height="60" DockPanel.Dock="Top">
                 <Border Margin="0,2,0,2.4" Width="280" VerticalAlignment="Center">
                     <WrapPanel>
                         <RadioButton Click="RadioButtonClicked" x:Name="inkRadio" Margin="5,10" Content="Ink Mode" IsChecked="True"/>
@@ -36,7 +36,7 @@
                     <Button Grid.Column="2" x:Name="btnClear" Margin="10,10" Width="65" Content="Clear Data" Click="Clear" />
                 </Grid>
             </ToolBar>
-            <InkCanvas x:Name="MyInkCanvas" Background="#FFFFFF" Height="400" Margin="1,0,-1,0"></InkCanvas>
-        </StackPanel>
+            <InkCanvas x:Name="MyInkCanvas" Background="#FFFFFF"></InkCanvas>
+        </DockPanel>
     </Grid>
 </Window>
