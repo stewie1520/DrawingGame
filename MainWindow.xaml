@@ -5,56 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfControlAndApi"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="800">
-    <Window.Resources>
-        <local:MyDoubleConverter x:Key="DoubleConverter"></local:MyDoubleConverter>
-    </Window.Resources>
+        Title="Drawing Game" Height="650" Width="800"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        <TabControl Name="MyTabControl" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch">
-            <TabItem Header="Ink Api">
-                <StackPanel Background="#FFE5E5E5">
-                    <ToolBar Name="InkToolBar" Height="60">
-                        <Border Margin="0,2,0,2.4" Width="280" VerticalAlignment="Center">
-                            <WrapPanel>
-                                <RadioButton Click="RadioButtonClicked" x:Name="inkRadio" Margin="5,10" Content="Ink Mode" IsChecked="True"/>
-                                <RadioButton Click="RadioButtonClicked" x:Name="eraseRadio" Margin="5,10" Content="Erase Mode"/>
-                                <RadioButton Click="RadioButtonClicked" x:Name="selectRadio" Margin="5,10" Content="Select Mode"/>
-                            </WrapPanel>
-                        </Border>
-                        <Separator/>
-                        <ComboBox x:Name="comboColors" Width="175" Margin="10,0,0,0" SelectionChanged="ColorChanged">
-                            <ComboBoxItem>Red</ComboBoxItem>
-                            <ComboBoxItem>Green</ComboBoxItem>
-                            <ComboBoxItem>Blue</ComboBoxItem>
-                        </ComboBox>
-                        <Separator/>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <Button Grid.Column="0" x:Name="btnSave" Margin="10,10" Width="65" Content="Save Data" Click="SaveData" />
-                            <Button Grid.Column="1" x:Name="btnLoad" Margin="10,10" Width="65" Content="Load Data" Click="LoadData" />
-                            <Button Grid.Column="2" x:Name="btnClear" Margin="10,10" Width="65" Content="Clear Data" Click="Clear" />
-                        </Grid>
-                    </ToolBar>
-                    <InkCanvas x:Name="MyInkCanvas" Background="#FFB6F4F1"></InkCanvas>
-                </StackPanel>
-            </TabItem>
-            <TabItem Header="Data Binding" x:Name="tabDataBinding">
-                <StackPanel Width="250" DataContext="{Binding ElementName=mySB}">
-                    <Label>Move the scrollbar to see the current value</Label>
-                    <ScrollBar x:Name="mySB" Orientation="Horizontal" Height="30" Minimum="1" Maximum="100" LargeChange="1" SmallChange="1" />
-                    <Label x:Name="labelSBThumb" Height="30" BorderBrush="Blue" BorderThickness="2" 
-                           Content="{Binding Path=Value, Converter={StaticResource DoubleConverter}}"></Label>
-                    <Button Height="200" FontSize="{Binding Path=Value}">Click</Button>
-                </StackPanel>
-            </TabItem>
-            <TabItem Header="DataGrid" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="96">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-        </TabControl>
-
+        <StackPanel Background="#FFE5E5E5">
+            <ToolBar Name="InkToolBar" Height="60">
+                <Border Margin="0,2,0,2.4" Width="280" VerticalAlignment="Center">
+                    <WrapPanel>
+                        <RadioButton Click="RadioButtonClicked" x:Name="inkRadio" Margin="5,10" Content="Ink Mode" IsChecked="True"/>
+                        <RadioButton Click="RadioButtonClicked" x:Name="eraseRadio" Margin="5,10" Content="Erase Mode"/>
+                        <RadioButton Click="RadioButtonClicked" x:Name="selectRadio" Margin="5,10" Content="Select Mode"/>
+                    </WrapPanel>
+                </Border>
+                <Separator/>
+                <ComboBox x:Name="comboColors" Width="175" Margin="10,0,0,0" SelectionChanged="ColorChanged">
+                    <ComboBoxItem>Black</ComboBoxItem>
+                    <ComboBoxItem>Red</ComboBoxItem>
+                    <ComboBoxItem>Green</ComboBoxItem>
+                    <ComboBoxItem>Blue</ComboBoxItem>
+                </ComboBox>
+                <Separator/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" x:Name="btnSave" Margin="10,10" Width="65" Content="Save Data" Click="SaveData" />
+                    <Button Grid.Column="1" x:Name="btnLoad" Margin="10,10" Width="65" Content="Load Data" Click="LoadData" />
+                    <Button Grid.Column="2" x:Name="btnClear" Margin="10,10" Width="65" Content="Clear Data" Click="Clear" />
+                </Grid>
+            </ToolBar>
+            <InkCanvas x:Name="MyInkCanvas" Background="#FFFFFF" Height="400"></InkCanvas>
+        </StackPanel>
     </Grid>
 </Window>
