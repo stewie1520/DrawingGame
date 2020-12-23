@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using System.IO;
 using System.Windows.Ink;
 
-namespace WpfControlAndApi
+namespace DrawingGame
 {
     public partial class MainWindow : Window
     {
